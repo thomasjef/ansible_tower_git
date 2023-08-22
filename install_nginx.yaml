@@ -1,0 +1,8 @@
+---
+- name: install nginx
+  host: sll
+  remote_user: root 
+  tasks:
+  - name: check nginx is installed  
+    command: netstat -ntlp | grep -o 80 &> /dev/null && echo "0" || echo "1"
+    ignore_errors: true
